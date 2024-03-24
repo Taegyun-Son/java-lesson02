@@ -6,34 +6,74 @@ public class ForWhileIteration {
     private static int currentIteration = 0;
 
     public static void main(String[] args) {
+
+        // TODO Auto-generated method stub
+
         iterateTenTime();
+
         iterateTwentyTime();
+
         if (currentIteration != TARGET_ITERATION) {
+
             System.out.println("오답입니다.");
+
         } else {
+
             System.out.println("정답입니다.");
+
         }
+
     }
 
     /**
+
      *  해당 메서드는 다음과 같은 역할을 가져야 합니다 :
+
      *  for문을 이용해, 정확히 10번 {@code runTask} 메서드를 실행해야 합니다.
+
      */
+
     private static void iterateTenTime() {
-        throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+
+        for (int i = 0; i < 10; i++) {
+
+            runTask();
+
+        }
+
     }
 
+
+
     /**
+
      *  해당 메서드는 다음과 같은 역할을 가져야 합니다 :
+
      *  while문을 이용해, 정확히 20번 {@code runTask} 메서드를 실행해야 합니다.
+
      */
+
     private static void iterateTwentyTime() {
+
         int iterateCounter = 0;
-        throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+
+        while(iterateCounter<20) {
+
+            runTask();
+
+            iterateCounter++;
+
+        }
+
     }
+
+
 
     private static void runTask() {
+
         currentIteration++;
+
         System.out.println(currentIteration + "번 반복되었습니다.");
+
     }
 }

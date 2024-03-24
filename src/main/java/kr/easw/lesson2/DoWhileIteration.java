@@ -3,28 +3,23 @@ package kr.easw.lesson2;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * 해당 클래스는 간단한 블랙잭 게임의 예제입니다.
- *
- * do-while로 적절한 코드를 작성하였다면, 간단한 블랙잭 게임이 진행됩니다.
- */
 public class DoWhileIteration {
     private static final Random random = new Random();
-
     private static final Scanner scanner = new Scanner(System.in);
-
     private static final int TARGET_VALUE = 21;
-
     private static int currentValue = 0;
 
+
     public static void main(String[] args) {
+        // TODO Auto-generated method stub
         System.out.println("시작합니다.");
         checkValue();
+
         if (currentValue >= TARGET_VALUE) {
             System.out.println("최종 점수: 0");
             System.out.println("패배했습니다.");
         } else {
-            System.out.println("최종 점수: " + (TARGET_VALUE - (TARGET_VALUE - currentValue)));
+            System.out.println("최종 점수: " + (TARGET_VALUE - (TARGET_VALUE-currentValue)));
         }
     }
 
@@ -37,16 +32,21 @@ public class DoWhileIteration {
      * - do-while문을 반드시 이용해야 합니다.
      */
     private static void checkValue() {
-        throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+        do {
+            increaseValue();
+        }while(!stopGame());
     }
 
     public static boolean stopGame() {
+
         if (TARGET_VALUE <= currentValue)
             return true;
         String nextValue = null;
+
         while (true) {
             System.out.print("계속 합니까? (Y / N) : ");
             String input = scanner.next();
+
             if (input.equals("Y") || input.equals("N")) {
                 nextValue = input;
                 break;
@@ -55,7 +55,6 @@ public class DoWhileIteration {
         }
         return nextValue.equals("N");
     }
-
 
     private static void increaseValue() {
         currentValue += random.nextInt(10) + 1;
